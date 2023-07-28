@@ -1,20 +1,15 @@
-const express = require('express');
-const {engine} = require ('express-handlebars');
-const config = require('./config/config');
+const express = require("express");
 
-const app = express();
-app.engine('hbs', engine({
-  extname: 'hbs'
-}))
-app.set('view engine','hbs');
-app.use(express.static('public'))
+const expressConfig = require('./config/express.js')
+const config = require("./config/config.js");
+const app = express()
 
-app.get('/',(req,res) => {
+expressConfig(app)
 
-  res.render('home',{layout: false})
-})
+app.get("/", (req, res) => {
+  res.render("home", { layout: false });
+});
 
-app.listen(config.PORT, ()=> {
-  console.log(`Server is running on ${config.PORT}!`)
-})
-
+app.listen(config.PORT, () => {
+  console.log(`Server is running on ${config.PORT}!`);
+});
