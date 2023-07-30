@@ -9,5 +9,5 @@ expressConfig(app);
 app.use(routes);
 
 app.listen(config.PORT, () => {
-  console.log(`Server is running on ${config.PORT}!`);
+  console.log(`Server is on ${config.PORT}!`);
 });
