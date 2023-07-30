@@ -1,16 +1,9 @@
 const { Router } = require("express");
-
+const productController = require('./controllers/productController')
+const aboutController = require('./controllers/aboutController')
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.render("home", { layout: false });
-});
+router.use('/', productController);
+router.use('/about', aboutController)
 
-router.get("/create", (req, res) => {
-  res.render("create", { layout: false });
-});
-
-router.get("/about", (req, res) => {
-  res.render("about", { layout: false });
-});
 module.exports = router;
