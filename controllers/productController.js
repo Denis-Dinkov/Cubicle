@@ -2,15 +2,12 @@ const { Router } = require("express");
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.render("home", { layout: false });
+  res.render("home",{title: 'Home'});
 });
 
 router.get("/create", (req, res) => {
-  res.render("create", { layout: false });
+  res.render("create",{title: "Create"});
 });
 
-router.get("*", (req,res) => {
-  res.render('404', {layout: false})
-})
 
 module.exports = router
